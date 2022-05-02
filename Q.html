@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script>
+    const root = document.getElementById("root");
+    // root라는 id를 가진 어떤 것을 root 라는 변수로 가져옴
+    root.style.fontSize = "5rem";
+    // root 의 fontSize를 5rem으로 설정
+    let isStatus = true;
+    // isStatus는 블리언값 true 로 대입
+    let current = 0;
+    // current 는 숫자 0값 으로 대입
+    root.textContent = current;
+    // root의 객체 textContent는 변수 current 
+    root.addEventListener('click', function () {
+      // root의 객체 addEventListener에 클릭했을 때 
+      if (isStatus === true) {
+        // isStatus가 true 이면
+        current++;
+        // current를 1씩 증가해 주고
+        if (current >= 10) {
+          // 만약 current가 10보다 크거나 같다면
+          isStatus = false;
+          // isStatus에 false값을 대입
+        }
+        // current >= 10 의 조건문닫기
+        root.textContent = current;
+        // root의 textContent는 current를 써줘
+      } else {
+        // isStatus가 true가 아니면
+        current--;
+        // current 를 1씩 감소시켜줘
+        if (current <= 0) {
+          // 만약 current가 0보다 작거나 같으면
+          isStatus = true;
+          // isStatus에 true를 대입해줘
+        }
+        // current <= 0 의 조건문 닫기
+        root.textContent = current;
+        // root의 textContent 값에 current를 넣어줘
+      }
+    })
+  </script>
+
+</body>
+
+</html>
