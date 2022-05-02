@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script>
+    document.body.style.padding = 0;
+    // body의 스타일 값 padding = 0
+    document.body.style.margin = 0;
+    // body의 스타일 값 margin = 0
+    const root = document.getElementById("root");
+    // root 라는 변수에 문서에서 id를 root으로 가진 어떤 것을 가지고 옴
+
+    
+    
+    
+    
+    // 변수 선언 
+    
+    let sectionArr = ["피카츄", "라이츄", "파이리", "꼬부기"];
+    //sectionArr라는 변수에 ["피카츄", "라이츄", "파이리", "꼬부기"];배열을 초기화
+
+    let sectionColor = ["salmon", "darkgray", "darkblue", "darkcyan"];
+    // sectionArr 라는 변수에 ["salmon", "darkgray", "darkblue", "darkcyan"];배열을 선언
+    console.dir(window);
+    // window 에 뭐가 있는지 console 에 찍어줘
+
+    // 값 가지고 오기
+    const viewWidth = window.innerWidth;
+    // viewWidth 라는 변수에 widow의 객체중 innerWidth값을 가지고옴 (이게 vw를 쓰는 원리?)
+    const viewHeight = window.innerHeight;
+    // viewHeight 라는 변수에 widow의 객체중 innerHeight값을 가지고옴 (이게 vh를 쓰는 원리?)
+    
+    //  가져온 값 콘솔에서 확인
+    console.log(viewWidth);
+    // viewWidth을 console에 찍어줘
+    console.log(viewHeight);
+    // viewHeight을 console에 찍어줘
+
+    // root의 크기와 배경색 지정 (영역 확인을 위해서)
+    root.style.width = viewWidth + "px";
+    //root의 style의 width을 변수 viewWidth와 문자열 "px"로 대입
+    root.style.height = viewHeight + "px";
+    //root의 style의 height을 변수 viewHieght와 문자열 "px"로 대입
+    
+    root.style.backgroundColor = "#c4c4c4";
+    //root의 style의 backgroundColor의 값을 문자열 "#c4c4c4"를 대입
+    
+    
+    
+    
+    
+    
+    
+    root.addEventListener("click", function () {
+      // root의 addEventListner라는 내장 함수에 click이라는 매개변수와 function()이라는 매개변수를 넣고 안에 코드를 넣을 것임
+      for (let i = 0; i < sectionArr.length; i++) {
+        // 반복문 for에 i= 0이라고 선언 , i는 sectionArr의 길이 보다 작음, i는 1씩 증가
+        let sectionElement = document.createElement("section");
+        // sectionElement 를 문서에 요소를 만들게 하고 그 요소가 section임
+
+        
+        sectionElement.textContent = sectionArr[i];
+        // sectionElement의 texContent 에 sectionArr의 배열중 i를 대입
+        sectionElement.style.width = viewWidth + "px";
+        //sectionElement의 style의 width을 변수 viewWidth와 문자열 "px"로 대입
+      
+        sectionElement.style.height = (viewHeight / sectionArr.length) + "px";
+        //sectionElement의 style의 height을 변수 viewHeight를 sectionArr의 길이 값(지금은 4)으로 나눈 값과 문자열 "px"로 대입
+
+        sectionElement.style.backgroundColor = sectionColor[i];
+        // sectionElement의 style의 backgroundColor 에 sectionColor의 배열중 i를 대입
+        
+        root.appendChild(sectionElement);
+        //root 라는 요소에 자식으로 sectionsElement를 넣음
+      }
+    });
+
+    /* 코드만 보고 어떤 모습일 지 예상하기
+    1. 일단 배경에 root이 화면 창의 크기만큼 #c4c4c4로 존재
+    2. 클릭 할때마다 sectionElement가 작동 
+    3. 변수 sectionArr의 배열이 하나씩 화면에뜨고
+    4. 변수 sectionColor의 배열이 sectionElement의 배경색에 대입
+    5. 이때 sectionElement으로 만들어진 요소 section은 100vw을 너비로 가지고 100vh를 sectionArr의 길이값(지금은 4)로 나눈 값을 높이로 가짐
+    6. 그리고 root의 자식객체에 sectionElement를 넣음 -> 만들어진 section들이 root의 자식이 됨
+
+    --> 클릭할때마다 section 요소가 생김 
+    꼬부기 까지 나오고 멈출듯
+    */
+   
+    
+  </script>
+
+</body>
+
+</html>
