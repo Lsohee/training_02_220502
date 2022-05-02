@@ -9,12 +9,36 @@
 <body>
   <div id="root"></div>
   <script>
+    const root = document.getElementById("root")
+    let innerValue = "나는 지금 졸리다";
+    root.textContent = innerValue;
+
+    let current = 0;
+    // current = 1;
+
+    root.addEventListener("click", function(){
+      // console.log("hello");
+      // console.log(current);
+      if(current=== 1){
+        root.style.color = "#000000"
+        console.log("야호");
+        current = 0;
+      }
+      else{
+        console.log("아배고파");
+        root.style.color = "#ffffff"
+        current= 1;
+      }
+    })
+  </script>
+  <!-- <script>
     const root = document.getElementById("root");
     let text = "텀블러"
     root.textContent= text;
     text[0]= "겜"
     console.log(text[0]);
     
-  </script>
+  </script> -->
+  
 </body>
 </html>
